@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>RevitAddinTemplate.Multiversion</Name>
+    <Description>Revit Multi-Version Addin template (2020-2023) C# .NET</Description>
+    <Icon>RevitAddinTemplate.Multiversion.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>91fa0a77-6f52-412a-b945-ce4b9a2cc162</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>RevitAddinTemplate.Multiversion</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">App.cs</ProjectItem>
+	  <ProjectItem ReplaceParameters="true" OpenInEditor="true">Command.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
