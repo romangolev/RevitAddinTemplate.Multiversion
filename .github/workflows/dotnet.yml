@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+ run:
+  working-directory: ./
+  
 jobs:
   build:
 
@@ -22,13 +26,9 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore 
-      working-directory: ./
     - name: Install VS CoreUtility
       run: dotnet add package Microsoft.VisualStudio.CoreUtility --version 17.9.187
-      working-directory: ./
     - name: Build
       run: dotnet build  --no-restore
-      working-directory: ./
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: ./
