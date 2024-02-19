@@ -21,10 +21,14 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./RevitAddinTemplate.Multiversion.sln
+      run: dotnet restore 
+      working-directory: ./
     - name: Install VS CoreUtility
       run: dotnet add package Microsoft.VisualStudio.CoreUtility --version 17.9.187
+      working-directory: ./
     - name: Build
-      run: dotnet build ./RevitAddinTemplate.Multiversion.sln --no-restore
+      run: dotnet build  --no-restore
+      working-directory: ./
     - name: Test
-      run: dotnet test ./RevitAddinTemplate.Multiversion.sln --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
+      working-directory: ./
