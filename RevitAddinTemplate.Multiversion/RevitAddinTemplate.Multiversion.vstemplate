@@ -1,23 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>RevitAddinTemplate.Multiversion</Name>
+    <Name>Revit Addin Template (2020-2023)</Name>
     <Description>Revit Multi-Version Addin template (2020-2023) C# .NET</Description>
-    <Icon>RevitAddinTemplate.Multiversion.ico</Icon>
+    <Icon>ProjectTemplate.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <LanguageTag>csharp</LanguageTag>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <ProjectTypeTag>extension</ProjectTypeTag>
+    <ProjectTypeTag>desktop</ProjectTypeTag>
     <SortOrder>1000</SortOrder>
     <TemplateID>91fa0a77-6f52-412a-b945-ce4b9a2cc162</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>RevitAddinTemplate.Multiversion</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+    <Project ReplaceParameters="true" File="ProjectTemplate.csproj">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Properties\AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">App.cs</ProjectItem>
-	  <ProjectItem ReplaceParameters="true" OpenInEditor="true">Command.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Command.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$.addin">ProjectTemplate.addin</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>
