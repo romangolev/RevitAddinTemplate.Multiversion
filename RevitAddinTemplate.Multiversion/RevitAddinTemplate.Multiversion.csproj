@@ -16,7 +16,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RevitAddinTemplate.Multiversion</RootNamespace>
     <AssemblyName>RevitAddinTemplate.Multiversion</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <!-- <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion> -->
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -70,13 +70,11 @@
     <None Include="Command.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="project.json" />
     <None Include="Properties\AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="ProjectTemplate.csproj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
