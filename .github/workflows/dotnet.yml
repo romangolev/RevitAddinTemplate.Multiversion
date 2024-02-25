@@ -9,10 +9,6 @@ on:
   pull_request:
     branches: [ "main", "pipetest" ]
 
-defaults:
- run:
-  working-directory: /
-
 jobs:
   build:
 
