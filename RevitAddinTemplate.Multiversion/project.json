@@ -1,0 +1,11 @@
+﻿{
+  "runtimes": {
+    "win": {}
+  },
+  "frameworks": {
+    "net472": {}
+  },
+  "dependencies": {
+    "Microsoft.VSSDK.BuildTools": "17.9.3168"
+  }
+}

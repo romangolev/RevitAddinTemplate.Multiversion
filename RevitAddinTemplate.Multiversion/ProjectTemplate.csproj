@@ -39,6 +39,7 @@
 		<StartAction>Program</StartAction>
 		<StartProgram>$(ProgramW6432)\Autodesk\Revit 2020\Revit.exe</StartProgram>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2021|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
@@ -53,6 +54,7 @@
 		<StartAction>Program</StartAction>
 		<StartProgram>$(ProgramW6432)\Autodesk\Revit 2021\Revit.exe</StartProgram>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2022|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
@@ -67,6 +69,7 @@
 		<StartAction>Program</StartAction>
 		<StartProgram>$(ProgramW6432)\Autodesk\Revit 2022\Revit.exe</StartProgram>
 	</PropertyGroup>
+	
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2023|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
@@ -81,6 +84,7 @@
 		<StartAction>Program</StartAction>
 		<StartProgram>$(ProgramW6432)\Autodesk\Revit 2023\Revit.exe</StartProgram>
 	</PropertyGroup>
+	
 	<ItemGroup>
 		<Reference Include="System" />
 		<Reference Include="System.Configuration" />

@@ -1,12 +1,15 @@
 #region Namespaces
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Events;
 using Autodesk.Revit.UI.Selection;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Windows;
+using Application = Autodesk.Revit.ApplicationServices.Application;
 #endregion
 
 namespace $safeprojectname$
@@ -51,7 +54,10 @@ namespace $safeprojectname$
         tx.Commit();
       }
 
-      return Result.Succeeded;
+        // print generic message  
+        MessageBox.Show("Hello from $safeprojectname$");
+
+        return Result.Succeeded;
     }
   }
 }
