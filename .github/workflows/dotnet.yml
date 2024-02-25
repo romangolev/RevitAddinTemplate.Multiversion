@@ -16,10 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - name: Setup .NET build dependencies
+      uses: timheuer/bootstrap-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        nuget: 'false'
+        sdk: 'false'
+        msbuild: 'true'
     - name: Restore dependencies
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
