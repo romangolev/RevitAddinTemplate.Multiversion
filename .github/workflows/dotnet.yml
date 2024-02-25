@@ -8,11 +8,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +21,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore 
+    - name: Install VS CoreUtility
+      run: dotnet add package Microsoft.VisualStudio.CoreUtility --version 17.9.187
     - name: Build
       run: msbuild /p:Configuration=Release
       # run: dotnet build --no-restore
