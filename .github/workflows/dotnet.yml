@@ -25,5 +25,10 @@ jobs:
     - name: Build
       run: msbuild /p:Configuration=Release
       # run: dotnet build --no-restore
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}.zip
+        path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
     - name: Test
       run: dotnet test --no-build --verbosity normal
