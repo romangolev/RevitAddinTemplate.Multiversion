@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitAddinTemplate.Multiversion", "RevitAddinTemplate.Multiversion\RevitAddinTemplate.Multiversion.csproj", "{E31112A2-B1FD-488E-9FF5-F118A8692403}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitTemplateVSIX", "RevitTemplateVSIX\RevitTemplateVSIX.csproj", "{A2EFFB28-E907-40DE-AA80-830250259BFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{E31112A2-B1FD-488E-9FF5-F118A8692403}.Release|arm64.Build.0 = Release|arm64
 		{E31112A2-B1FD-488E-9FF5-F118A8692403}.Release|x86.ActiveCfg = Release|x86
 		{E31112A2-B1FD-488E-9FF5-F118A8692403}.Release|x86.Build.0 = Release|x86
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|arm64.ActiveCfg = Debug|arm64
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|arm64.Build.0 = Debug|arm64
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|x86.ActiveCfg = Debug|x86
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Debug|x86.Build.0 = Debug|x86
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|arm64.ActiveCfg = Release|arm64
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|arm64.Build.0 = Release|arm64
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|x86.ActiveCfg = Release|x86
+		{A2EFFB28-E907-40DE-AA80-830250259BFD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
