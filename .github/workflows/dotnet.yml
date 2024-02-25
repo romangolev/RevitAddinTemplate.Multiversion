@@ -23,10 +23,10 @@ jobs:
         sdk: 'false'
         msbuild: 'true'
     - name: Restore dependencies
-      run: dotnet restore RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
+      run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
     - name: Build zipped Template
-      run: dotnet build RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
+      run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       # run: dotnet build --no-restore
       working-directory: ./RevitAddinTemplate.Multiversion
     - name: Upload artifact
