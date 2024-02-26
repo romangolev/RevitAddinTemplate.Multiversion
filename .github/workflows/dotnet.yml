@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: windows-2019
     # runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -37,3 +37,4 @@ jobs:
         path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
     - name: Test
       run: dotnet test --no-build --verbosity normal
+
