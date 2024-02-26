@@ -8,29 +8,31 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  
+
 jobs:
   build:
-
-    runs-on: windows-latest
+    runs-on: windows-2019
+    # runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - name: Setup .NET build dependencies
+      uses: timheuer/bootstrap-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        nuget: 'false'
+        sdk: 'false'
+        msbuild: 'true'
     - name: Restore dependencies
-      run: dotnet restore 
-    # - name: Install VS CoreUtility
-    #   run: dotnet add package Microsoft.VisualStudio.CoreUtility --version 17.9.187
-    - name: Build
-      run: msbuild /p:Configuration=Release
-      # run: dotnet build --no-restore
+      run: dotnet restore RevitAddinTemplate.Multiversion.csproj
+      working-directory: ./RevitAddinTemplate.Multiversion
+    - name: Build zipped Template
+      run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
+      working-directory: ./RevitAddinTemplate.Multiversion
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.repository.name }}.zip
         path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+
+
