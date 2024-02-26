@@ -94,11 +94,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.9.28\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.9.28\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.9.28\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.VisualBasic.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="AssemblyInfo.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
