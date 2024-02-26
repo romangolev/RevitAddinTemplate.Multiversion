@@ -21,7 +21,7 @@
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">App.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Command.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$.addin">ProjectTemplate.addin</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>
+      <!--<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>-->
     </Project>
   </TemplateContent>
 </VSTemplate>
