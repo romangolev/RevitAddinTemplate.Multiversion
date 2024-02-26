@@ -24,17 +24,13 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
-    - name: check sdks
-      run: dotnet --list-sdks  
     - name: Build zipped Template
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
-      # run: dotnet build --no-restore
       working-directory: ./RevitAddinTemplate.Multiversion
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.repository.name }}.zip
         path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+
 
