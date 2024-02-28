@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "pipetest" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "pipetest" ]
 
 jobs:
   build:
@@ -30,9 +30,9 @@ jobs:
       working-directory: ./RevitAddinTemplate.Multiversion
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ github.event.repository.name }}.zip
-        path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
+        path: RevitAddinTemplate.Multiversion/bin/Release/RevitAddinTemplate.Multiversion.zip
 
 

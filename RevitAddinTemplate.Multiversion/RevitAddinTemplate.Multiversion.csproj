@@ -64,6 +64,9 @@
     <None Include="..\.github\workflows\dotnet.yml">
       <Link>dotnet.yml</Link>
     </None>
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
     <None Include="App.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
