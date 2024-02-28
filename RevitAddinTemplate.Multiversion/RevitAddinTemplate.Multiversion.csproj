@@ -111,7 +111,7 @@
     <PostBuildEvent>if exist "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates" xcopy  /Y /i "$(TargetDir)ProjectTemplates\CSharp\1033\$(TargetName).zip" "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
+    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetDir)" (del * /S /Q "$(TargetDir)")</PreBuildEvent>
