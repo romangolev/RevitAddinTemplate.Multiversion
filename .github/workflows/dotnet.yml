@@ -5,14 +5,15 @@ name: .NET
 
 on:
   push:
-    branches: [ "main", "pipetest" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "pipetest" ]
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: windows-2019
     # runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET build dependencies
@@ -27,6 +28,7 @@ jobs:
     - name: Build zipped Template
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
