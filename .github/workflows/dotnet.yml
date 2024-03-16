@@ -32,7 +32,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ github.event.repository.name }}.zip
-        path: RevitAddinTemplate.Multiversion/bin/Release/RevitAddinTemplate.Multiversion.zip
+        name: ${{ github.event.repository.name }}
+        path: RevitAddinTemplate.Multiversion/bin/Release
 
 
