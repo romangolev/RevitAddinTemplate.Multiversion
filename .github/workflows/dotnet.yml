@@ -36,6 +36,12 @@ jobs:
         name: ${{ github.event.repository.name }}
         path: RevitAddinTemplate.Multiversion/bin/Release
 
+    - name: Download the artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: ${{ github.event.repository.name }}.zip
+        path: ./
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -53,9 +59,10 @@ jobs:
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: RevitAddinTemplate.Multiversion/bin/Release
-        #asset_name: ${{ github.event.repository.name }}.zip
-        asset_name: ${{ github.ref }}
+        #asset_path: RevitAddinTemplate.Multiversion/bin/Release
+        asset_path: ./
+        asset_name: ${{ github.event.repository.name }}.zip
+        #asset_name: ${{ github.ref }}
         asset_content_type: application/zip
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
