@@ -47,9 +47,13 @@ jobs:
         script: |
             $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
             Write-Output ::set-output name=version::$version
-            echo $version
       continue-on-error: true
-    - run: echo "${{ steps.get_version.outputs }}"
+
+    - name: Echo output
+      uses: Amadevus/pwsh-script@v2
+      id: echo_output
+      with:
+        script: echo "${{ steps.get_version.outputs }}"
 
     - run: echo "${{ steps.get_version.outputs.error }}"
     - run: echo "${{ steps.get_version.outputs.result }}"
