@@ -37,7 +37,7 @@ jobs:
       id: read_version
       shell: pwsh
       run: |
-        read_data = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+        $read_data = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
         Write-Output ::set-output name=$version::read_data
 
     - name: Create Release
