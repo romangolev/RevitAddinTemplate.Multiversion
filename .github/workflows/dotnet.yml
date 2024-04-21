@@ -46,9 +46,11 @@ jobs:
       with:
         script: |
             $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
-            "::set-output name=version::$version"
+            Write-Output ::set-output name=version::$version
             echo $version
       continue-on-error: true
+    - run: echo "${{ steps.get_version.outputs }}"
+
     - run: echo "${{ steps.get_version.outputs.error }}"
     - run: echo "${{ steps.get_version.outputs.result }}"
     - run: echo "${{ steps.get_version.outputs.version }}"
