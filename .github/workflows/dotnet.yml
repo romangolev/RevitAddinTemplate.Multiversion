@@ -38,7 +38,7 @@ jobs:
       id: get_version
       with:
         script: |
-            $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+            $version = Get-Content -Path .\version
             Write-Output $version
             echo "$version=$version" >> "$GITHUB_OUTPUT"
       continue-on-error: true
