@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "main", "pipetest" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "pipetest" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -33,13 +33,6 @@ jobs:
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
 
-    # - name: Read version from file
-    #   id: read_version
-    #   shell: pwsh
-    #   run: |
-    #     $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
-        # Write-Output ::set-output name=$version::read_data
-
     - name: Get version from file
       uses: Amadevus/pwsh-script@v2
       id: get_version
@@ -50,22 +43,14 @@ jobs:
             echo "$version=$version" >> "$GITHUB_OUTPUT"
       continue-on-error: true
 
-    - name: Echo output
-      uses: Amadevus/pwsh-script@v2
-      id: echo_output
-      with:
-        script: echo "${{ steps.get_version.outputs }}"
-
-    - run: echo "${{ steps.get_version.outputs.error }}"
     - run: echo "${{ steps.get_version.outputs.result }}"
-    - run: echo "${{ steps.get_version.outputs.version }}"
   
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       with:
         tag_name: ${{ steps.get_version.outputs.result }}
-        release_name: Release ${{ github.ref }}
+        release_name: Release ${{ steps.get_version.outputs.result }}
         draft: false
         prerelease: false
       env: 
