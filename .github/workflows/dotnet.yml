@@ -15,13 +15,18 @@ jobs:
     # runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
     - name: Setup .NET build dependencies
       uses: timheuer/bootstrap-dotnet@v1
       with:
         nuget: 'false'
         sdk: 'false'
         msbuild: 'true'
+
     - name: Restore dependencies
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
@@ -30,19 +35,24 @@ jobs:
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
 
-    # - name: Upload artifact
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: ${{ github.event.repository.name }}
-    #     path: RevitAddinTemplate.Multiversion/bin/Release
+    - name: Get previous tag
+      id: previoustag
+      uses: 'WyriHaximus/github-action-get-previous-tag@v1'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get next minor version
+      id: semver
+      uses: 'WyriHaximus/github-action-next-semvers@v1'
+      with:
+        version: ${{ steps.previoustag.outputs.tag 
 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       with:
-        tag_name: test
-        # tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ steps.semver.outputs.patch }}
+        release_name: Release ${{ steps.semver.outputs.patch }}
         draft: false
         prerelease: false
       env: 
