@@ -45,7 +45,7 @@ jobs:
       id: semver
       uses: 'WyriHaximus/github-action-next-semvers@v1'
       with:
-        version: ${{ steps.previoustag.outputs.tag 
+        version: ${{ steps.previoustag.outputs.tag }}
 
     - name: Create Release
       id: create_release
