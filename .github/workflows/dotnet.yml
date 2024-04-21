@@ -39,15 +39,20 @@ jobs:
     #   run: |
     #     $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
         # Write-Output ::set-output name=$version::read_data
+
     - name: Get version from file
       uses: Amadevus/pwsh-script@v2
       id: get_version
       with:
-        script: $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+        script: |
+            $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+            "::set-output name=version::$version"
+            echo $version
       continue-on-error: true
     - run: echo "${{ steps.get_version.outputs.error }}"
-      # should print 'this fails'
-
+    - run: echo "${{ steps.get_version.outputs.result }}"
+    - run: echo "${{ steps.get_version.outputs.version }}"
+  
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
