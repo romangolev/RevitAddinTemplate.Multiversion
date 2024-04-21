@@ -33,12 +33,20 @@ jobs:
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
 
-    - name: Read version from file
-      id: read_version
-      shell: pwsh
-      run: |
-        $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+    # - name: Read version from file
+    #   id: read_version
+    #   shell: pwsh
+    #   run: |
+    #     $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
         # Write-Output ::set-output name=$version::read_data
+    - name: Get version from file
+      uses: Amadevus/pwsh-script@v2
+      id: get_version
+      with:
+        script: $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+      continue-on-error: true
+    - run: echo "${{ steps.get_version.outputs.error }}"
+      # should print 'this fails'
 
     - name: Create Release
       id: create_release
