@@ -5,6 +5,20 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|arm64'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|arm64'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -40,6 +54,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>
     </NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,6 +63,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -63,6 +79,9 @@
   <ItemGroup>
     <None Include="..\.github\workflows\dotnet.yml">
       <Link>dotnet.yml</Link>
+    </None>
+    <None Include="..\README.md">
+      <Link>README.md</Link>
     </None>
     <None Include="App.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -111,10 +130,13 @@
     <PostBuildEvent>if exist "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates" xcopy  /Y /i "$(TargetDir)ProjectTemplates\CSharp\1033\$(TargetName).zip" "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
+    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetDir)" (del * /S /Q "$(TargetDir)")</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

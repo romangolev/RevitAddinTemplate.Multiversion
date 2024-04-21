@@ -15,24 +15,54 @@ jobs:
     # runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+
     - name: Setup .NET build dependencies
       uses: timheuer/bootstrap-dotnet@v1
       with:
         nuget: 'false'
         sdk: 'false'
         msbuild: 'true'
+
     - name: Restore dependencies
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
-    - name: Build zipped Template
+
+    - name: Build Template Release
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
+    - name: Get version from file
+      uses: Amadevus/pwsh-script@v2
+      id: get_version
       with:
-        name: ${{ github.event.repository.name }}.zip
-        path: RevitAddinTemplate.Multiversion/bin/Release/*.zip
+        script: |
+            $version = Get-Content -Path .\version
+            Write-Output $version
+            echo "$version=$version" >> "$GITHUB_OUTPUT"
+      continue-on-error: true
 
+    - run: echo "${{ steps.get_version.outputs.result }}"
+  
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ steps.get_version.outputs.result }}
+        release_name: Release ${{ steps.get_version.outputs.result }}
+        draft: false
+        prerelease: false
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: RevitAddinTemplate.Multiversion/bin/Release/${{ github.event.repository.name }}.zip
+        asset_name: ${{ github.event.repository.name }}.zip
+        asset_content_type: application/zip
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
