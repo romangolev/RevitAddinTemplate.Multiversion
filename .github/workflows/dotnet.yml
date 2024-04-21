@@ -37,12 +37,8 @@ jobs:
       id: read_version
       shell: pwsh
       run: |
-        $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
-    # - name: Upload artifact
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: ${{ github.event.repository.name }}
-    #     path: RevitAddinTemplate.Multiversion/bin/Release
+        read_data = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
+        Write-Output ::set-output name=$version::read_data
 
     - name: Create Release
       id: create_release
@@ -62,7 +58,6 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: RevitAddinTemplate.Multiversion/bin/Release/${{ github.event.repository.name }}.zip
         asset_name: ${{ github.event.repository.name }}.zip
-        #asset_name: ${{ github.ref }}
         asset_content_type: application/zip
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
