@@ -47,6 +47,7 @@ jobs:
         script: |
             $version = Get-Content -Path .\RevitAddinTemplate.Multiversion\version
             Write-Output $version
+            echo "$version=$version" >> "$GITHUB_OUTPUT"
       continue-on-error: true
 
     - name: Echo output
@@ -63,7 +64,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       with:
-        tag_name: $ {{ steps.get_version.outputs.result }}
+        tag_name: $ {{ steps.get_version.outputs.version }}
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
