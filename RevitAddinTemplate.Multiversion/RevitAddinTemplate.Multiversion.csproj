@@ -125,17 +125,18 @@
   <!-- <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.9.28\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.9.28\build\Microsoft.VisualStudio.Threading.Analyzers.targets'))" /> -->
   <!-- </Target> -->
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <PostBuildEvent>if exist "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates" xcopy  /Y /i "$(TargetDir)ProjectTemplates\CSharp\1033\$(TargetName).zip" "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates"</PostBuildEvent>
+      <PostBuildEvent>if exist "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates" xcopy  /Y /i "$(TargetDir)ProjectTemplates\CSharp\1033\$(TargetName).zip" "$(UserProfile)\Documents\Visual Studio 2022\Templates\ProjectTemplates"</PostBuildEvent>
+      <PostBuildEvent>xcopy "$(TargetDir)ProjectTemplates\CSharp\1033\$(TargetName).zip" /Y /i "$(SolutionDir)Artifacts"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
+      <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>if exist "$(TargetDir)" (del * /S /Q "$(TargetDir)")</PreBuildEvent>
   </PropertyGroup>
-  <PropertyGroup>
+  <!--<PropertyGroup>
     <PostBuildEvent>(powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force)</PostBuildEvent>
-  </PropertyGroup>
+  </PropertyGroup>-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
