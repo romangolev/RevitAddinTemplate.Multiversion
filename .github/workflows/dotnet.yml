@@ -31,6 +31,11 @@ jobs:
         sdk: 'false'
         msbuild: 'true'
 
+    - name: Install Visual Studio components
+      run: |
+        choco install visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VSSDKBuildTools --includeRecommended --includeOptional"
+        choco install visualstudio2019-workload-vctools
+
     - name: Restore RevitAddinTemplate.Multiversion
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
@@ -38,7 +43,6 @@ jobs:
     - name: Build RevitAddinTemplate.Multiversion Release
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
-
 
     - name: Restore RevitTemplateVSIX
       run: dotnet restore RevitTemplateVSIX.csproj
