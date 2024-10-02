@@ -49,7 +49,7 @@ jobs:
       working-directory: ./RevitTemplateVSIX
 
     - name: Build RevitTemplateVSIX Release
-      run: msbuild RevitTemplateVSIX.csproj /p:Configuration=Release
+      run: msbuild RevitTemplateVSIX.csproj /p:Configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal
       working-directory: ./RevitTemplateVSIX
 
     - name: Get version from file
