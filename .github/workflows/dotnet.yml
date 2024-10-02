@@ -18,6 +18,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Add nuget to PATH
+      uses: nuget/setup-nuget@v1.0.5
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
     - name: Setup .NET build dependencies
       uses: timheuer/bootstrap-dotnet@v1
       with:
