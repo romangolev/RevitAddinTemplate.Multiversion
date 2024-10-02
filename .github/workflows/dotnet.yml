@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
     branches: [ "main" ]
 
@@ -25,13 +25,22 @@ jobs:
         sdk: 'false'
         msbuild: 'true'
 
-    - name: Restore dependencies
+    - name: Restore RevitAddinTemplate.Multiversion
       run: dotnet restore RevitAddinTemplate.Multiversion.csproj
       working-directory: ./RevitAddinTemplate.Multiversion
 
-    - name: Build Template Release
+    - name: Build RevitAddinTemplate.Multiversion Release
       run: msbuild RevitAddinTemplate.Multiversion.csproj /p:Configuration=Release
       working-directory: ./RevitAddinTemplate.Multiversion
+
+
+    - name: Restore RevitTemplateVSIX
+      run: dotnet restore RevitTemplateVSIX.csproj
+      working-directory: ./RevitTemplateVSIX
+
+    - name: Build RevitTemplateVSIX Release
+      run: msbuild RevitTemplateVSIX.csproj /p:Configuration=Release
+      working-directory: ./RevitTemplateVSIX
 
     - name: Get version from file
       uses: Amadevus/pwsh-script@v2
@@ -56,13 +65,24 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload Release Asset
-      id: upload-release-asset 
+    - name: Upload Zipped Template file
+      id: upload-zipped-template
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: RevitAddinTemplate.Multiversion/bin/Release/${{ github.event.repository.name }}.zip
         asset_name: ${{ github.event.repository.name }}.zip
         asset_content_type: application/zip
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Vsix file
+      id: upload-vsix-file
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: RevitTemplateVSIX/bin/Release/RevitTemplateVSIX.vsix
+        asset_name: RevitTemplateVSIX.vsix
+        # asset_content_type: application/zip
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
