@@ -76,6 +76,6 @@
     <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />  
     <PropertyGroup>  
         <PreBuildEvent>xcopy "$(MSBuildThisFileDirectory)..\Artifacts\*.zip" /Y /i "$(ProjectDir)ProjectTemplates\"</PreBuildEvent>
-        <PostBuildEvent>xcopy "$(OutputPath)*.vsix" /Y /i "$(MSBuildThisFileDirectory)..\Artifacts\"</PostBuildEvent>
+        <PostBuildEvent>xcopy "$(OutputPath)RevitTemplateVSIX.vsix" /Y /i "$(MSBuildThisFileDirectory)..\Artifacts\"</PostBuildEvent>
     </PropertyGroup>  
 </Project>
