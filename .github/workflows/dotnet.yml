@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
     branches: [ "main" ]
 
@@ -65,4 +65,55 @@ jobs:
         asset_name: ${{ github.event.repository.name }}.zip
         asset_content_type: application/zip
       env: 
+<<<<<<< Updated upstream
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+=======
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Vsix file
+      id: upload-vsix-file
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: RevitTemplateVSIX/bin/Release/RevitTemplateVSIX.vsix
+        asset_name: RevitTemplateVSIX.vsix
+        asset_content_type: application/octet-stream
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    # if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+    needs: build
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: RevitTemplateVSIX.vsix
+
+      - name: Upload to Open VSIX
+        uses: timheuer/openvsixpublish@v1
+        with:
+          vsix-file: RevitTemplateVSIX.vsix
+
+      - name: Tag and Release
+        # if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]') }}
+        id: tag_release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: Release ${{ needs.build.outputs.version }}
+          tag_name: ${{ needs.build.outputs.version }}
+          files: |
+            **/*.vsix
+
+      - name: Publish extension to Marketplace
+        # if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]') }}
+        uses: cezarypiatek/VsixPublisherAction@1.0
+        with:
+          extension-file: 'RevitTemplateVSIX.vsix'
+          publish-manifest-file: 'vs-publish.json'
+          personal-access-code: ${{ secrets.VS_PUBLISHER_ACCESS_TOKEN }}
+>>>>>>> Stashed changes
