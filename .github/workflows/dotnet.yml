@@ -76,9 +76,6 @@ jobs:
         asset_name: ${{ github.event.repository.name }}.zip
         asset_content_type: application/zip
       env: 
-<<<<<<< Updated upstream
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-=======
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Vsix file
@@ -127,4 +124,3 @@ jobs:
           extension-file: 'RevitTemplateVSIX.vsix'
           publish-manifest-file: 'vs-publish.json'
           personal-access-code: ${{ secrets.VS_PUBLISHER_ACCESS_TOKEN }}
->>>>>>> Stashed changes
