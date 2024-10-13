@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "revit", "templates" ],
+  "identity": {
+    "internalName": "RevitMultiversionTemplate",
+    "tags": [ "revit" ]
+  },
+  "overview": "README.md",
+  "publisher": "Roman Goelv",
+  "repo": "https://github.com/romangolev/RevitAddinTemplate.Multiversion"
+}
