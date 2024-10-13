@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/vsix-publish",
-  "categories": [ "revit", "templates" ],
+  "categories": [ "templates" ],
   "identity": {
     "internalName": "RevitMultiversionTemplate",
     "tags": [ "revit" ]
