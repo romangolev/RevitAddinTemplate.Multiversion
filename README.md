@@ -13,7 +13,9 @@ To install the template, download the zip file from the latest [Release](https:/
 %USERPROFILE%\Documents\Visual Studio 2022\Templates\ProjectTemplates
 ```
 
-Or simply run VSIX file attached to the release in order to install the template. The template will apear as an extension for Visual Studio
+Or download and run VSIX file attached to the release in order to install the template. The template will apear as an extension for Visual Studio
+
+Or simply install this extension from a Visual Studio Marketplace [Revit Multiversion Addin Template](https://marketplace.visualstudio.com/items?itemName=RomanGolev.RevitMultiversionAddinTemplate)
 
 ## Usage
 - Create new project in Visual Studio and select the template from the list.
