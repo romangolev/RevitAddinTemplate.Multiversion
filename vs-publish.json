@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [ "coding", "build" ],
   "identity": {
-    "internalName": "RevitMultiversionTemplate",
+    "internalName": "Revit_MultiversionTemplate",
     "tags": [ "revit" ]
   },
   "overview": "README.md",
