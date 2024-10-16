@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="RevitTemplate.07A0070E-AC98-4F0F-A2B9-48F39C834482" Version="1.0" Language="en-US" Publisher="Roman Golev" />
+        <Identity Id="RevitTemplate.62A9E53E-CEDD-4C4E-9B99-AC1C6E51DBD8" Version="1.0.0" Language="en-US" Publisher="Roman Golev" />
         <DisplayName>RevitTemplate</DisplayName>
         <Description xml:space="preserve">A Revit Add-in Template for Visual Sudio that can point to multiple versions of Revit at the same time. This template uses configurations and generate separate dll files for each bersion.</Description>
         <MoreInfo>https://github.com/romangolev/RevitAddinTemplate.Multiversion</MoreInfo>

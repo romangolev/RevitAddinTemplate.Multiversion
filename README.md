@@ -15,7 +15,7 @@ To install the template, download the zip file from the latest [Release](https:/
 
 Or download and run VSIX file attached to the release in order to install the template. The template will apear as an extension for Visual Studio
 
-Or simply install this extension from a Visual Studio Marketplace [Revit Multiversion Addin Template](https://marketplace.visualstudio.com/items?itemName=RomanGolev.RevitMultiversionAddinTemplate)
+Or simply install this extension from a Visual Studio Marketplace [Revit Multiversion Addin Template](https://marketplace.visualstudio.com/items?itemName=RomanGolev.RevitAddinTemplate.Multiversion)
 
 ## Usage
 - Create new project in Visual Studio and select the template from the list.
