@@ -1,8 +1,8 @@
-# Revit Multiversion Addin Template for Visual Studio 2022
+﻿# Revit Multiversion Addin Template for Visual Studio 2022
 ## Description
 - This is basic Revit Add-in template for Visual Studio
 - It uses configurations to target different versions of Revit
-- Is targeting each version of Revit assummint that they have been installed in the default location
+- Using Revit_All_Main_Versions_API_x64 nuget package as a reference to Revit API
 - Has a post-build event that copied all files to the Revit Addins folder located in ```%appdataAutodesk\Revit\Addins```
 - Supports Revit 2020 to 2025
 
@@ -24,4 +24,12 @@ Or simply install this extension from a Visual Studio Marketplace [Revit Multive
 - Develop you plugin and have fun ;)
 
 
-With <3 by [Roman Golev](https://www.romangolev.com/), 2024
+After installing the extension, you can create a new project by selecting the Revit Multiversion Addin Template from the list of templates in Visual Studio:
+![template](img/template.png)
+
+
+To run the project, select the version of Revit you want to run the plugin in the list of configurations and hit play button:
+![start](img/start.png)
+
+
+✌️ [Roman Golev](https://www.romangolev.com/), 2024

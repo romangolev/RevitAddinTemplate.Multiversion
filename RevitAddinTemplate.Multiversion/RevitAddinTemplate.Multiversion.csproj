@@ -132,7 +132,6 @@
         <Exec Command="powershell Compress-Archive -Path '$(TargetDir)\*' -DestinationPath '$(TargetDir)\$(TargetName).zip' -Force"/>
     </Target>
     <Target Name="CopyZIP" AfterTargets="CompressZIP" Condition=" '$(Configuration)' == 'Release' ">
-        <Exec Command="mkdir &quot;$(MSBuildThisFileDirectory)..\Artifacts&quot; &amp;&amp; xcopy &quot;$(MSBuildThisFileDirectory)bin\Release\$(TargetName).zip&quot; /Y /i &quot;$(MSBuildThisFileDirectory)..\Artifacts&quot;" />
+        <Exec Command="if not exist &quot;$(MSBuildThisFileDirectory)..\Artifacts&quot; mkdir &quot;$(MSBuildThisFileDirectory)..\Artifacts&quot; &amp;&amp; xcopy &quot;$(MSBuildThisFileDirectory)bin\Release\$(TargetName).zip&quot; /Y /i &quot;$(MSBuildThisFileDirectory)..\Artifacts&quot;" />
     </Target>
-    
 </Project>
