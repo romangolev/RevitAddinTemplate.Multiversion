@@ -401,4 +401,5 @@ FodyWeavers.xsd
 #Artifacts
 Artifacts/
 
-
+# Rider IDE
+.idea
