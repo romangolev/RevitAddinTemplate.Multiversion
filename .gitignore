@@ -401,5 +401,17 @@ FodyWeavers.xsd
 #Artifacts
 Artifacts/
 
-# Rider IDE
-.idea
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.RevitAddinTemplate.Multiversion.iml
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

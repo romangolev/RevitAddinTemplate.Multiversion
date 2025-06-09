@@ -8,7 +8,7 @@
 ## Description
 - This is basic Revit Add-in template for Visual Studio
 - It uses configurations to target different versions of Revit
-- Using Revit_All_Main_Versions_API_x64 nuget package as a reference to Revit API
+- Using [Revit_All_Main_Versions_API_x64](https://www.nuget.org/packages/Revit_All_Main_Versions_API_x64) nuget package as a reference to Revit API
 - Has a post-build event that copied all files to the Revit Addins folder located in ```%appdataAutodesk\Revit\Addins```
 - Supports Revit 2020 to 2025
 
@@ -21,7 +21,7 @@ To install the template, download the zip file from the latest [Release](https:/
 
 Or download and run VSIX file attached to the release in order to install the template. The template will apear as an extension for Visual Studio
 
-Or simply install this extension from a Visual Studio Marketplace [Revit Multiversion Addin Template](https://marketplace.visualstudio.com/items?itemName=RomanGolev.RevitAddinTemplate.Multiversion)
+Or simply install this extension from a Visual Studio Marketplace [Revit Multiversion Addin Template](https://marketplace.visualstudio.com/items?itemName=RomanGolev.RevitAddinTemplateMultiversion)
 
 ## Usage
 - Create new project in Visual Studio and select the template from the list.
