@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Revit Addin Template (2020-2025)</Name>
-    <Description>Revit Multi-Version Addin template (2020-2025) C# .NET</Description>
+    <Name>Revit Addin Template (2020-2026)</Name>
+    <Description>Revit Multi-Version Addin template (2020-2026) C# .NET</Description>
     <Icon>ProjectTemplate.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <LanguageTag>csharp</LanguageTag>

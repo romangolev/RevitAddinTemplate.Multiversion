@@ -16,7 +16,7 @@
         <LangVersion>latest</LangVersion>
         <NuGetPackageImportStamp>
         </NuGetPackageImportStamp>
-        <Configurations>Debug;Release;R2020;R2021;R2022;R2023;R2024;R2025</Configurations>
+        <Configurations>Debug;Release;R2020;R2021;R2022;R2023;R2024;R2025;R2026</Configurations>
     </PropertyGroup>
     
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2020|AnyCPU' ">
@@ -122,6 +122,24 @@
         <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
         <UseWPF>true</UseWPF>
     </PropertyGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'R2026|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\R2026\</OutputPath>
+        <DefineConstants>DEBUG;R2026</DefineConstants>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <AssemblyName>$(AssemblyName)</AssemblyName>
+        <RevitVersion>2025</RevitVersion>
+        <WarningLevel>4</WarningLevel>
+        <LangVersion>latest</LangVersion>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(ProgramW6432)\Autodesk\Revit 2026\Revit.exe</StartProgram>
+        <EnableDefaultEmbeddedResourseItems>false</EnableDefaultEmbeddedResourseItems>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
 
     <Choose>
         <When Condition=" '$(Configuration)'=='R2020' ">
@@ -173,6 +191,12 @@
             <ItemGroup>
                 <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
                 <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2025.0.0" IncludeAssets="build; compile" PrivateAssets="All" />
+            </ItemGroup>
+        </When>
+        <When Condition=" '$(Configuration)'=='R2026' ">
+            <ItemGroup>
+                <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+                <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2026.0.0" IncludeAssets="build; compile" PrivateAssets="All" />
             </ItemGroup>
         </When>
     </Choose>
