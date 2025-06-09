@@ -38,8 +38,4 @@ To run the project, select the version of Revit you want to run the plugin in th
 ![start](img/start.png)
 
 
-<<<<<<< Updated upstream
-✌️ [Roman Golev](https://www.romangolev.com/), 2024
-=======
 ✌️ [Roman Golev](https://www.romangolev.com/), 2025
->>>>>>> Stashed changes
