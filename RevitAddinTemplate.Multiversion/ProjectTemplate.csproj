@@ -131,7 +131,7 @@
         <DefineConstants>DEBUG;R2026</DefineConstants>
         <TargetFramework>net8.0-windows</TargetFramework>
         <AssemblyName>$(AssemblyName)</AssemblyName>
-        <RevitVersion>2025</RevitVersion>
+        <RevitVersion>2026</RevitVersion>
         <WarningLevel>4</WarningLevel>
         <LangVersion>latest</LangVersion>
         <StartAction>Program</StartAction>
