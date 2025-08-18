@@ -10,7 +10,7 @@
 - It uses configurations to target different versions of Revit
 - Using [Revit_All_Main_Versions_API_x64](https://www.nuget.org/packages/Revit_All_Main_Versions_API_x64) nuget package as a reference to Revit API
 - Has a post-build event that copied all files to the Revit Addins folder located in ```%appdataAutodesk\Revit\Addins```
-- Supports Revit 2020 to 2025
+- Supports Revit 2020 to 2026
 
 ## Installation 
 To install the template, download the zip file from the latest [Release](https://github.com/romangolev/RevitAddinTemplate.Multiversion/releases) and copy it to the following location:
