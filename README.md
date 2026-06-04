@@ -1,7 +1,7 @@
 ﻿# Revit Multiversion Addin Template for Visual Studio 2022
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Build](../../actions/workflows/dotnet.yml/badge.svg)](../../actions)
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/RomanGolev.RevitAddinTemplateMultiversion)
 
 
@@ -39,4 +39,4 @@ To run the project, select the version of Revit you want to run the plugin in th
 ![start](img/start.png)
 
 
-✌️ [Roman Golev](https://www.romangolev.com/), 2025
+✌️ [Roman Golev](https://www.romangolev.com/), 2026
